@@ -67,18 +67,18 @@ CREATE TABLE VENDAFATO(
 INSERT INTO VENDAFATO (CPF, Livro_ID, Editora_ID, Valor, Custo, ID_Mes, Ano_ID,
 				  Quantidade, MargemDeLucro, Faturamento, PercentualDeLucro)
 SELECT DISTINCT 
-	    c.CPF					as VendaCodCliente, 
-	    l.Livro_ID				as VendaCodLivro,
-	    e.Editora_ID				as VendaCodEditora, 
-	    cm.Valor					as VendaValor, 
-	    cm.Custo					as VendaCusto,
-	    m.ID_Mes					as VendaMes, 
-	    an.Ano_ID				as VendaAno,
-	    count(l.livro_ID)		as Quantidade, 
-	    sum(cm.Valor - cm.Custo)	as MargemDeLucro,
-	    sum(cm.Valor)			as Faturamento,
+	    c.CPF					 as VendaCodCliente, 
+	    l.Livro_ID				 as VendaCodLivro,
+	    e.Editora_ID			 as VendaCodEditora, 
+	    cm.Valor				 as VendaValor, 
+	    cm.Custo				 as VendaCusto,
+	    m.ID_Mes				 as VendaMes, 
+	    an.Ano_ID				 as VendaAno,
+	    count(l.livro_ID)		 as Quantidade, 
+	    sum(cm.Valor - cm.Custo) as MargemDeLucro,
+	    sum(cm.Valor)			 as Faturamento,
 	    sum(cm.Valor - cm.Custo)
-	    /sum(cm.Valor)		as PercentualDeLucro
+	    /sum(cm.Valor)			 as PercentualDeLucro
 	FROM 
 	   Cliente c
     INNER JOIN ItemDaCompra i ON c .CPF = i .CPF
